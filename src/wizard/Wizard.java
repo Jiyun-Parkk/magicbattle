@@ -37,20 +37,12 @@ public class Wizard {
 		System.out.printf("%s 마법사의 나이를 입력해주세요. : ", orderText);
 		age = sc.nextInt();
 	}
-	
-	public void playGame() {
-		// 선공자를 정한다.
-		// 선공자 부터 공격 attack
-		
-		
-	}
 
-	public void attack(Wizard attacker, Wizard victim) {
+	public void attack(Wizard victim) {
 
 		Magic[] listOfMagic = { new Magic("파이어볼", 50), new Magic("아이스볼", 20), new Magic("썬더볼", 70),
 				new Magic("회오리바람~~", 30) };
 		int random = new Random().nextInt(listOfMagic.length);
-		
 		// 랜덤으로 공격자를 정한다
 		// 한쪽의 hp가 0이 될때까지 싸운다
 	}
