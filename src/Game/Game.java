@@ -48,7 +48,6 @@ public class Game {
             } else {
                 victim = player1;
             }
-            System.out.println("선공 인덱스는 : " + firstAttack);
 
             listOfPlayers.get(firstAttack).attack(victim);
             System.out.println("========================================");
