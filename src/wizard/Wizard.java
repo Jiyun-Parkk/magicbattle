@@ -36,17 +36,26 @@ public class Wizard {
 		name = sc.nextLine();
 		System.out.printf("%s 마법사의 나이를 입력해주세요. : ", orderText);
 		age = sc.nextInt();
+		System.out.println("========================================");
 	}
 
 	public void attack(Wizard victim) {
 
-		Magic[] listOfMagic = { new Magic("파이어볼", 50), new Magic("아이스볼", 20), new Magic("썬더볼", 70),
-				new Magic("회오리바람~~", 30) };
+		Magic[] listOfMagic = {new Magic("파이어볼", 20), new Magic("아이스볼", 10), new Magic("썬더볼", 30),
+				new Magic("회오리바람~~", 5)};
 		int random = new Random().nextInt(listOfMagic.length);
-		// 랜덤으로 공격자를 정한다
-		// 한쪽의 hp가 0이 될때까지 싸운다
+		Magic selectedMagic = listOfMagic[random];
+		int victimHP = victim.getHp();
+		int computeHP = victimHP - selectedMagic.computedPower(age);
+		victim.setHp(computeHP);
+
+		System.out.printf("%s(이)가 %s(을)를 %s(으)로 공격했습니다. %s공격력 %d%n", name, victim.getName(),
+				selectedMagic.getMagicName(), selectedMagic.getMagicName(), selectedMagic.getMagicPower());
+		selectedMagic.printEffectResult(age);
+		System.out.printf("%s(이)가 데미지 %d을 받았습니다.%n", victim.getName(),
+				selectedMagic.computedPower(age));
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("name: %s, age: %d", name, age);
